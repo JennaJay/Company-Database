@@ -5,7 +5,7 @@ VALUES  ("Sales"),
         ("Custodial"),
         ("Finance"),
         ("Sales"),
-        ("Finance")
+        ("Finance"),
         ("Legal");
 
 
@@ -20,11 +20,11 @@ VALUES  ('Account Executive', 130000, 1),
         ('Paralegal', 80000, 2);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)  
-VALUES  ('Blanche', 'Devereaux', 1, 1),
-        ('Dorothy', 'Zbornak', 2, 2),
-        ('Sophia', 'Petrillo', 3, 3),
-        ('Stanley', 'Zbornak', 4, 4),
-        ('Rose', 'Nyland', 5, 7),
-        ('Miles', 'Webber', 6, 1),
-        ('Lucas', 'Hollingsworth', 7, 7),
-        ('Frieda', 'Claxton', 8, 2);
+VALUES  ('Blanche', 'Devereaux', 1, NULL),
+        ('Dorothy', 'Zbornak', 2, 1),
+        ('Sophia', 'Petrillo', 3, 2),
+        ('Stanley', 'Zbornak', 4, 3),
+        ('Rose', 'Nyland', 5, 4),
+        ('Miles', 'Webber', 6, 5),
+        ('Lucas', 'Hollingsworth', 7, 6),
+        ('Frieda', 'Claxton', 8, 7);
