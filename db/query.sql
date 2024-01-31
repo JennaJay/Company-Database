@@ -1,4 +1,3 @@
 -- SELECT *
--- -- SELF JOIN? INNER JOIN?
--- FROM employee
--- JOIN employee TO
+-- FROM role
+-- JOIN department ON role.department_id = department.id;

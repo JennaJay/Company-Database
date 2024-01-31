@@ -20,9 +20,9 @@ VALUES  ('Account Executive', 130000, 1),
         ('Paralegal', 80000, 2);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)  
-VALUES  ('Blanche', 'Devereaux', 1, NULL),
-        ('Dorothy', 'Zbornak', 2, 1),
-        ('Sophia', 'Petrillo', 3, 2),
+VALUES  ('Blanche', 'Devereaux', 1, 1),
+        ('Dorothy', 'Zbornak', 2, 2),
+        ('Sophia', 'Petrillo', 3, 3),
         ('Stanley', 'Zbornak', 4, 3),
         ('Rose', 'Nyland', 5, 4),
         ('Miles', 'Webber', 6, 5),
