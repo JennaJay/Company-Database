@@ -63,7 +63,7 @@ function viewAllDepartments() {
 };
 
 function viewAllRoles() {
-    db.query('SELECT * FROM role;', (err, res) => {
+    db.query('SELECT role.id, role.title, role.salary, department.name AS department FROM role INNER JOIN department ON (department.id = role.department_id);', (err, res) => {
         if(err)throw err
         console.table(res)
         menu()
@@ -90,12 +90,13 @@ function addADepartment() {
         db.query(`INSERT INTO department (name) VALUES ('${dep.departmentname}')`, (err, res) => {
             if(err)throw err
             console.table(res)
+            console.log("Added" + dep.departmentname + "to the database")
             menu()
         })
     }) 
     };
 
-function addARole() {
+function addARole() { 
     inquirer.prompt([
         {
             type: 'input',
@@ -111,7 +112,8 @@ function addARole() {
             type: 'list',
             message: 'Which department does this role belong to?',
             name: 'assign',
-            choices: [1, 2, 3, 4, 5],
+            choices: [1, 2, 3, 4, 5
+            ]
         }
     ])  .then(newrole => {
 
@@ -139,17 +141,21 @@ function addAnEmployee() {
             type: 'list',
             message: 'Employee role?',
             name: 'employrole',
-            choices: []
+            choices: [1, 2, 3, 4, 5, 6, 7, 8]
         },
         {
             type: 'list',
             message: 'Employee manager?',
             name: 'employmanager',
-            choices: []
+            choices: [1, 2, 3, 4, 5]
         },
     ])  .then(newemploy => {
 
-        db.query()
+        db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${newemploy.nameone}', '${newemploy.nametwo}', '${newemploy.employrole}', '${newemploy.employmanager}')`, (err, res) => {
+            if(err) throw err
+            console.table(res)
+            menu()
+        })
     })
         
 }; 
@@ -160,17 +166,21 @@ function updateEmployeeRole() {
             type: 'list',
             message: 'Select employee:',
             name: 'employupdate',
-            choices: []
+            choices: ['Rose', 'Blanche', 'Dorothy', 'Sophia', 'Stanley', 'Miles', 'Lucas', 'Frieda', 'Max']
         },
         {
-            type: 'list',
+            type: 'input',
             message: 'Which role do you want to assign?',
             name: 'employnewrole',
-            choices: []
         }
     ])  .then(newupdate => {
 
-        db.query()
+        db.query(`INSERT INTO employee (first_name, role_id) VALUES ('${newupdate.employupdate}', '${newupdate.employnewrole}')`, (err, res) => {
+            if(err) throw err
+            console.table(res)
+            menu()
+
+        })
     })
 };
 
